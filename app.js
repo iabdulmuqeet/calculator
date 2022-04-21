@@ -173,15 +173,7 @@ function evaluate(expression) {
 
 		// Current token is an operator.
 		else if (
-			tokens[i] == '+' ||
-			tokens[i] == '-' ||
-			tokens[i] == '*' ||
-			tokens[i] == '/' ||
-			tokens[i] == '^' ||
-			tokens[i] == 'sqrt' ||
-			tokens[i] == 'cos' ||
-			tokens[i] == 'sin' ||
-			tokens[i] == 'tan'
+			['+', '-', '*', '/', '^', 'sqrt', 'cos', 'sin', 'tan'].includes(tokens[i])
 		) {
 			/* While top of 'ops' has same or greater precedence to current token, which is an operator.
       Apply operator on top of 'ops' to top two elements in values stack */
