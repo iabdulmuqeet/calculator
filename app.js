@@ -191,10 +191,11 @@ function evaluate(expression) {
 	while (ops.length > 0) {
 		// If the current ops is a function i.e cos, sin, tan or sqrt then we will only pop one value
 		if (
-			ops[ops.length - 1] === 'cos' ||
-			ops[ops.length - 1] === 'sin' ||
-			ops[ops.length - 1] === 'tan' ||
-			ops[ops.length - 1] === 'sqrt'
+			// ops[ops.length - 1] === 'cos' ||
+			// ops[ops.length - 1] === 'sin' ||
+			// ops[ops.length - 1] === 'tan' ||
+			// ops[ops.length - 1] === 'sqrt'
+			['cos', 'sin', 'tan', 'sqrt'].includes(ops[ops.length - 1])
 		) {
 			values.push(applyOp(ops.pop(), 0, values.pop()));
 		} else {
