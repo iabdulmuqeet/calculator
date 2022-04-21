@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <!-- Cascade Style Sheet -->
+  <link rel="stylesheet" href="/styles.css" />
+  <title>Calculator</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="variables col-lg-4 col-sm-12">
+        <div id="variableDiv">
+          <h1 class="text-center">Variables</h1>
+          <button class="btnBack btn btn-danger" onclick="hideVariable()">Hide</button>
+          <form class="variable-form" onSubmit="event.preventDefault(); addVariable()">
+            <input type=" text" id="varName" name="varName" class="form-control" placeholder="Var name here..." />
+            <input type="text" id="varValue" name="varValue" class="form-control" placeholder="Var value here..." />
+            <button type="submit" class="btnVar btn btn-primary" onclick="">Add</button>
+          </form>
+          <ul id="variables-ul"></ul>
+        </div>
+      </div>
+      <div class="calculator col-lg-4 col-sm-12">
+        <h1 class="text-center">Calculator</h1>
+        <form class="cal-form" onSubmit="">
+          <div class="form-group">
+            <input type="text" id="input-field" class="form-control" placeholder="Type your expression here..." />
+            <br />
+            <input type="text" id="result-field" class="form-control" readonly size="18" placeholder="Result" />
+          </div>
+          <div class="keys-container">
+            <button type="button" class="btn btn-outline-success" value="1" name="btn1" onclick="display(btn1.value)">
+              1
+            </button>
+            <button type="button" class="btn btn-outline-success" value="2" name="btn2" onclick="display(btn2.value)">
+              2
+            </button>
+            <button type="button" class="btn btn-outline-success" value="3" name="btn3" onclick="display(btn3.value)">
+              3
+            </button>
+            <button type="button" class="btn btn-outline-danger" value="C" name="btnC" onclick="display(btnC.value)">
+              C
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="show" name="showBtn" onclick="displayDivs()">
+              Show
+            </button>
+            <button type="button" class="btn btn-outline-success" value="4" name="btn4" onclick="display(btn4.value)">
+              4
+            </button>
+            <button type="button" class="btn btn-outline-success" value="5" name="btn5" onclick="display(btn5.value)">
+              5
+            </button>
+            <button type="button" class="btn btn-outline-success" value="6" name="btn6" onclick="display(btn6.value)">
+              6
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="+" name="addBtn" onclick="display(addBtn.value)">
+              +
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="sin" name="btnSin"
+              onclick="display(btnSin.value)">
+              Sin
+            </button>
+            <button type="button" class="btn btn-outline-success" value="7" name="btn7" onclick="display(btn7.value)">
+              7
+            </button>
+            <button type="button" class="btn btn-outline-success" value="8" name="btn8" onclick="display(btn8.value)">
+              8
+            </button>
+            <button type="button" class="btn btn-outline-success" value="9" name="btn9" onclick="display(btn9.value)">
+              9
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="-" name="subBtn" onclick="display(subBtn.value)">
+              -
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="cos" name="btnCos"
+              onclick="display(btnCos.value)">
+              Cos
+            </button>
+            <button type="button" class="btn btn-outline-success" value="0" name="btn0" onclick="display(btn0.value)">
+              0
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="2.718" name="btnE" onclick="display(btnE.value)">
+              E
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="sqrt" name="btnSqrt"
+              onclick="display(btnSqrt.value)">
+              Sqrt
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="*" name="multiplyBtn"
+              onclick="display(multiplyBtn.value)">
+              *
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="tan" name="btnTan"
+              onclick="display(btnTan.value)">
+              Tan
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="(" name="btnOpen"
+              onclick="display(btnOpen.value)">
+              (
+            </button>
+            <button type="button" class="btn btn-outline-dark" value=")" name="btnClose"
+              onclick="display(btnClose.value)">
+              )
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="3.1415" name="btnPI"
+              onclick="display(btnPI.value)">
+              PI
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="/" name="btnDivide"
+              onclick="display(btnDivide.value)">
+              /
+            </button>
+            <button type="button" class="btn btn-outline-dark" value="^" name="btnPower"
+              onclick="display(btnPower.value)">
+              x ^ y
+            </button>
+
+            <button type="button" class="btn btnEqual btn-primary" value="=" name="btnEqual" onclick="answer()">
+              =
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="history col-lg-4 col-sm-12">
+        <div id="historyDiv">
+          <h1 class="text-center">History</h1>
+          <button class="btnBack btn btn-danger" onclick="hideHistory()">Hide</button>
+          <ul id="history-ul"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+
+</html>
